@@ -18,6 +18,8 @@ I have followed the structure for
 In the Future Hooks folder to contain all custom hooks.
 
 Trade-offs:
+Readability, Usability, Convenience 
+
 1- I left the Rich Editor thing, due to time constraints, and for the 1st phase of release, we have a better POC to take forward.
 2- If time given I will work to make better designing, thing more about sharing conversation feature and the remaining bonus task RichEditor.
 3- As only one page was there, so routing not there, we can include when the use-case arises.
