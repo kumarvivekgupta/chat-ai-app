@@ -12,7 +12,7 @@ const App = () => {
 
 
   return (
-    <Container maxWidth="lg" style={{ display: 'flex', height: '100vh', flexDirection: 'column', paddingLeft: '0', paddingRight: '0' }}>
+    <Container maxWidth="xxl" style={{ display: 'flex', height: '100vh', flexDirection: 'column', paddingLeft: '0', paddingRight: '0' }}>
       <CssBaseline />
       <div style={{ display: 'flex', flex: 1 }}>
         <ConversationsPanel />
