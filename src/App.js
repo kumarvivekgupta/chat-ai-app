@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Container, AppBar, Toolbar, Typography, IconButton } from '@mui/material';
-import Chat from './components/Chat';
+import Chat from './pages/Chat';
 import ConversationsPanel from './components/ConversationsPanel';
 import { CssBaseline } from '@mui/material';
 import ThemeSwitch from './components/ThemeSwitch';
@@ -12,14 +12,14 @@ const App = () => {
 
 
   return (
-    <Container maxWidth="lg" style={{ display: 'flex', height: '100vh', flexDirection: 'column' , paddingLeft:'0', paddingRight:'0'}}>
+    <Container maxWidth="lg" style={{ display: 'flex', height: '100vh', flexDirection: 'column', paddingLeft: '0', paddingRight: '0' }}>
       <CssBaseline />
       <div style={{ display: 'flex', flex: 1 }}>
         <ConversationsPanel />
         <Chat />
       </div>
       <Box position="absolute" right="10px" top="10px">
-      <ThemeSwitch />
+        <ThemeSwitch />
       </Box>
     </Container>
   );

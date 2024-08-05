@@ -2,7 +2,7 @@ import React from 'react';
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Typography, Box, IconButton } from '@mui/material';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
-import Chat from './Chat';
+import Chat from '../pages/Chat';
 
 const PastConversationDialog = ({ open, onClose, conversation }) => {
     if (!conversation) return null;
