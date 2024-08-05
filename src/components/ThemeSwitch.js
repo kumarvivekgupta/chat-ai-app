@@ -4,19 +4,20 @@ import Typography from '@mui/joy/Typography';
 import React from 'react';
 import Stack from '@mui/joy/Stack';
 
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
+// function classNames(...classes) {
+//     return classes.filter(Boolean).join(' ')
+// }
 
 function ThemeSwitch() {
     const [theme, setTheme] = useState('light');
 
     useEffect(() => {
         document.body.classList.remove('light', 'dark')
-        document.body.classList.add(theme)
+        document.body.classList.add(theme);
+        console.log(theme);
     }, [theme])
 
-    const [enabled, setEnabled] = useState(theme === 'light')
+    const [enabled, setEnabled] = useState(false)
 
     const handleThemeChange = () => {
         setEnabled(!enabled);

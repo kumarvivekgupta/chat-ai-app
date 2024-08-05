@@ -12,10 +12,8 @@ const Chat = ({ isDialog = false, pastConversations = [] }) => {
     const messages = useSelector(state => state.conversation.currentConversation.messages);
     const dispatch = useDispatch();
     const [endConversation, setEndConversation] = useState(false);
-    const [inputContent, setInputContent] = useState(null);
 
     const handleSendMessage = () => {
-        console.log(inputContent);
         dispatch(addMessage({ text: input, isUser: true }));
         // Simulate AI response
         setTimeout(() => {
@@ -24,10 +22,12 @@ const Chat = ({ isDialog = false, pastConversations = [] }) => {
         setInput('');
     };
 
+    //Handle Feedback on AI Response
     const handleFeedback = (type, index) => {
         dispatch(addFeedback({ index, type }));
     };
 
+    //Handle Save Conversation
     const handleSaveConversation = () => {
         dispatch(saveConversationAsync({ messages, feedback: { rating, comment } }));
         setComment('');
@@ -35,6 +35,7 @@ const Chat = ({ isDialog = false, pastConversations = [] }) => {
         setEndConversation(false);
     };
 
+    //Handle Share Conversation feature
     const handleShare = () => {
         const text = messages.map(msg => msg.text).join('\n');
         navigator.clipboard.writeText(text).then(() => {
@@ -58,7 +59,7 @@ const Chat = ({ isDialog = false, pastConversations = [] }) => {
                                     color="success">
                                     <ThumbUpIcon />
                                 </IconButton> : '' : (!!msg?.feedback && msg.feedback === 'like' ?
-                                    <IconButton  
+                                    <IconButton
                                         color="success">
                                         <ThumbUpIcon />
                                     </IconButton> :
@@ -71,15 +72,15 @@ const Chat = ({ isDialog = false, pastConversations = [] }) => {
                                         color="error">
                                         <ThumbDownIcon />
                                     </IconButton>
-                                    : '' :(!!msg?.feedback && msg.feedback==='dislike'?
-                                    <IconButton
-                                         color="error">
-                                        <ThumbDownIcon />
-                                    </IconButton>:
-                                    <IconButton
-                                        onClick={() => handleFeedback('dislike', index)} color="error">
-                                        <ThumbDownIcon />
-                                    </IconButton>)
+                                    : '' : (!!msg?.feedback && msg.feedback === 'dislike' ?
+                                        <IconButton
+                                            color="error">
+                                            <ThumbDownIcon />
+                                        </IconButton> :
+                                        <IconButton
+                                            onClick={() => handleFeedback('dislike', index)} color="error">
+                                            <ThumbDownIcon />
+                                        </IconButton>)
                                 }
 
                             </Box> : ''}
